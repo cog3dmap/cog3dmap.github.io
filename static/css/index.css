@@ -1,0 +1,226 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.hero-body .container {
+  max-width: 960px;
+}
+
+.publication-title {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner {
+  max-height: none;
+}
+
+.publication-links .button {
+  margin: 0.25rem;
+}
+
+/* Video container */
+.publication-video {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.publication-video video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Figure styling */
+.figure-container {
+  margin: 1.5rem 0;
+}
+
+.figure-container img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.figure-caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.75rem;
+  text-align: justify;
+}
+
+/* Abstract */
+.abstract-content {
+  text-align: justify;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* BibTeX */
+.bibtex-section pre {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  text-align: left;
+}
+
+/* Author notes */
+.author-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Affiliations */
+.affiliations {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* Results Tables */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.5rem 0.6rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.results-table th {
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.results-table thead tr:first-child th {
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.6rem;
+}
+
+.results-table td:first-child,
+.results-table th:first-child {
+  text-align: left;
+}
+
+.results-table .category-header td {
+  font-style: italic;
+  color: #555;
+  font-size: 0.85rem;
+  padding-top: 0.7rem;
+  border-bottom: none;
+}
+
+.results-table .baseline-row td {
+  color: #999;
+}
+
+.results-table .ours-row {
+  background-color: #f0f7ff;
+  font-weight: 600;
+}
+
+.results-table .rank-1 {
+  font-weight: 700;
+  background-color: rgba(255, 215, 0, 0.25);
+}
+
+.results-table .rank-2 {
+  font-weight: 600;
+  background-color: rgba(192, 192, 192, 0.25);
+}
+
+.results-table .rank-3 {
+  background-color: rgba(205, 127, 50, 0.18);
+}
+
+.results-table .col-group-numerical {
+  background-color: rgba(255, 165, 0, 0.08);
+}
+
+.results-table .col-group-mc {
+  background-color: rgba(255, 255, 0, 0.08);
+}
+
+.results-table .separator td {
+  border-bottom: 1px solid #ccc;
+  padding: 0;
+  height: 0;
+}
+
+.table-caption {
+  font-size: 0.88rem;
+  color: #555;
+  margin-top: 0.75rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2.5rem;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 1.5rem;
+}
+
+.footer .content p {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* Section spacing */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+/* Video grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.video-grid .video-item {
+  text-align: center;
+}
+
+.video-grid .video-item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
