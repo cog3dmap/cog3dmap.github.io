@@ -32,7 +32,7 @@
 
       <div class="is-size-5 publication-authors">
         <span class="author-block">
-          <a href="#">Chanyoung Gwak</a><sup>*1</sup>,
+          <a href="https://gwakcy0.github.io">Chanyoung Gwak</a><sup>*1</sup>,
         </span>
         <span class="author-block">
           <a href="https://jeongyw12382.github.io">Yoonwoo Jeong</a><sup>*1</sup>,
@@ -107,7 +107,36 @@
         <h2 class="title is-3 has-text-centered">Abstract</h2>
         <div class="content abstract-content">
           <p>
-            Precise spatial understanding from multi-view images remains a fundamental challenge for Multimodal Large Language Models (MLLMs), as their visual encoders primarily capture semantic information and lack explicit geometric grounding. While existing approaches augment visual tokens with geometric cues from visual geometry models, their MLLM is still required to implicitly infer the underlying 3D structure of the scene from these augmented tokens, limiting its spatial reasoning capability. To address this issue, we introduce <strong>Cog3DMap</strong>, a framework that recurrently constructs an explicit 3D memory from multi-view images, where each token is grounded in 3D space and possesses both semantic and geometric information. By feeding these tokens into the MLLM, our framework enables direct reasoning over a spatially structured 3D map, achieving state-of-the-art performance on various spatial reasoning benchmarks.
+            Precise spatial understanding from multi-view images remains a fundamental challenge for Multimodal Large Language Models (MLLMs), as their visual representations are predominantly semantic and lack explicit geometric grounding. While existing approaches augment visual tokens with geometric cues from visual geometry models, their MLLM is still required to implicitly infer the underlying 3D structure of the scene from these augmented tokens, limiting its spatial reasoning capability. To address this issue, we introduce <strong>Cog3DMap</strong>, a framework that recurrently constructs an explicit 3D memory from multi-view images, where each token is grounded in 3D space and possesses both semantic and geometric information. By feeding these tokens into the MLLM, our framework enables direct reasoning over a spatially structured 3D map, achieving state-of-the-art performance on various spatial reasoning benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Attention Visualization -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Attention Visualization</h2>
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="figure-container">
+          <img src="./static/images/attention_maps.png"
+               alt="Attention visualization across varying text queries">
+          <p class="figure-caption">
+            <strong>ScanQA style queries.</strong>
+            Cog3DMap attends to query-relevant tokens without explicit supervision.
+          </p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="figure-container">
+          <img src="./static/images/attention_maps_scan2cap.png"
+               alt="Attention visualization on Scan2Cap">
+          <p class="figure-caption">
+            <strong>Scan2Cap validation sample.</strong>
+            Cog3DMap assigns high attention to visual tokens corresponding to the generated answer.
           </p>
         </div>
       </div>
@@ -215,7 +244,6 @@
       </div>
       <p class="table-caption">
         Performance comparison on VSTI-Bench, which evaluates joint spatial and temporal understanding.
-        <sup>&dagger;</sup> indicates methods tested on the Tiny subset.
         Cog3DMap achieves strong performance on spatial reasoning and camera movement prediction tasks, demonstrating its ability to encode both geometric and temporal cues within a unified 3D representation.
       </p>
     </div>
@@ -330,7 +358,7 @@
         </table>
       </div>
       <p class="table-caption">
-        Results on multi-view global spatial scene understanding on VSI-Bench. <em>Spatial-Enhanced Models</em> denote methods specialized for spatial reasoning.
+        Results on multi-view global spatial scene understanding on VSI-Bench.
         Cog3DMap achieves state-of-the-art overall performance, performing particularly well on absolute distance, relative direction, and appearance order, demonstrating the benefits of explicit 3D representations for spatial reasoning.
       </p>
     </div>
@@ -351,8 +379,8 @@
         <h2 class="title is-3 has-text-centered">BibTeX</h2>
         <pre><code>@article{gwak2025cog3dmap,
   title   = {Cog3DMap: Multi-View Vision-Language Reasoning with 3D Cognitive Maps},
-  author  = {Gwak, Chanyoung and Jeong, Yoonwoo and Jeon, Byungwoo and Lee, Hyunseok and Shin, Jinwoo and Cho, Minsu},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  author  = {Chanyoung Gwak and Yoonwoo Jeong and Byungwoo Jeon and Hyunseok Lee and Jinwoo Shin and Minsu Cho},
+  journal = {arXiv preprint arXiv:2603.23023},
   year    = {2025}
 }</code></pre>
       </div>
