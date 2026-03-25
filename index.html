@@ -115,10 +115,41 @@
   </div>
 </section>
 
+<!-- Key Highlights -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Key Highlights</h2>
+    <p class="tldr has-text-centered">
+      <strong>TL;DR:</strong> We build an explicit 3D memory from multi-view images so that VLMs can directly reason over <br>structured 3D representations, instead of implicitly inferring spatial structure from redundant visual tokens.
+    </p>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <h3 class="highlight-title">Explicit 3D Memory Construction</h3>
+        <p>A recurrent framework that incrementally builds a structured 3D map from multi-view images, progressively integrating new observations into a unified spatial representation.</p>
+      </div>
+      <div class="highlight-card">
+        <h3 class="highlight-title">Compact &amp; Non-Redundant</h3>
+        <p>Unlike prior methods that assign identical 3D coordinates to overlapping view tokens, Cog3DMap maintains a single token per spatial location through a principled memory update mechanism that retains, updates, and expands tokens as new views arrive.</p>
+      </div>
+      <div class="highlight-card">
+        <h3 class="highlight-title">State-of-the-Art Spatial Reasoning</h3>
+        <p>Achieves new SOTA on VSTI-Bench (+8.7%p over previous best), VSI-Bench (+3.9%p), and competitive results on RoboFAC, all while reducing visual tokens by up to 90.2% on long-horizon sequences.</p>
+      </div>
+      <div class="highlight-card">
+        <h3 class="highlight-title">Semantic + Geometric Fusion</h3>
+        <p>Combines semantic features from the MLLM's vision encoder with geometric features from a pretrained Point3R model, creating spatially grounded tokens that enable precise distance estimation, object localization, and spatial relationship reasoning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Attention Visualization -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Attention Visualization</h2>
+    <p class="has-text-centered" style="margin-bottom: 1.5rem; color: #555; font-size: 1rem;">
+      Without explicit spatial supervision, Cog3DMap learns to attend to spatially coherent 3D clusters around queried locations, demonstrating genuine 3D spatial understanding.
+    </p>
     <div class="columns is-centered">
       <div class="column is-half">
         <div class="figure-container">
@@ -138,37 +169,6 @@
             <strong>Scan2Cap validation sample.</strong>
             Cog3DMap assigns high attention to visual tokens corresponding to the generated answer.
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Demo Video -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Demo Video</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="video-grid">
-          <div class="video-item">
-            <div class="publication-video">
-              <video controls muted loop playsinline>
-                <source src="./static/videos/robofac_source.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p>Input video</p>
-          </div>
-          <div class="video-item">
-            <div class="publication-video">
-              <video controls muted loop playsinline>
-                <source src="./static/videos/robofac_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p>Cog3DMap reconstruction</p>
-          </div>
         </div>
       </div>
     </div>
@@ -243,8 +243,8 @@
         </table>
       </div>
       <p class="table-caption">
-        Performance comparison on VSTI-Bench, which evaluates joint spatial and temporal understanding.
-        Cog3DMap achieves strong performance on spatial reasoning and camera movement prediction tasks, demonstrating its ability to encode both geometric and temporal cues within a unified 3D representation.
+        Performance comparison on VSTI-Bench (joint spatial-temporal understanding).
+        Cog3DMap achieves strong performance on spatial reasoning and camera movement prediction, encoding both geometric and temporal cues within a unified 3D representation.
       </p>
     </div>
 
@@ -358,8 +358,8 @@
         </table>
       </div>
       <p class="table-caption">
-        Results on multi-view global spatial scene understanding on VSI-Bench.
-        Cog3DMap achieves state-of-the-art overall performance, performing particularly well on absolute distance, relative direction, and appearance order, demonstrating the benefits of explicit 3D representations for spatial reasoning.
+        Results on VSI-Bench (multi-view spatial scene understanding).
+        Cog3DMap achieves state-of-the-art overall performance, particularly on absolute distance, relative direction, and appearance order.
       </p>
     </div>
 
@@ -368,6 +368,100 @@
       <span style="display:inline-block; padding: 0.1rem 0.5rem; background-color: rgba(192,192,192,0.25); font-weight:600; border-radius:3px;">2nd</span>
       <span style="display:inline-block; padding: 0.1rem 0.5rem; background-color: rgba(205,127,50,0.18); border-radius:3px;">3rd</span>
     </p>
+
+    <!-- RoboFAC Bar Chart -->
+    <div class="table-wrapper">
+      <h3 class="title is-4">RoboFAC</h3>
+      <div class="robofac-chart-container" style="display: flex; gap: 2rem; margin-top: 1rem; flex-wrap: wrap;">
+
+        <!-- Accuracy Chart -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="text-align: center; font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem;">Accuracy (%)</h4>
+          <div class="bar-group">
+            <div class="bar-label">Short-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 42.0%;">42.0</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 82.1%;">82.1</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 84.8%;">84.8</div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Med-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 37.2%;">37.2</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 84.1%;">84.1</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 86.2%;">86.2</div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Long-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 34.8%;">34.8</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 87.5%;">87.5</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 87.2%;">87.2</div></div>
+          </div>
+        </div>
+
+        <!-- Token Chart -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="text-align: center; font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem;">Visual Tokens per Example</h4>
+          <div class="bar-group">
+            <div class="bar-label">Short-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 11.9%;">556.8</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 11.9%;">556.8</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 8.7%;">407.7</div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Med-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 31.6%;">1478.4</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 31.6%;">1478.4</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 9.8%;">460.4</div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Long-horizon</div>
+            <div class="bar-row"><div class="bar bar-qwen" style="width: 100%;">4684.8</div></div>
+            <div class="bar-row"><div class="bar bar-robofac" style="width: 100%;">4684.8</div></div>
+            <div class="bar-row"><div class="bar bar-ours" style="width: 9.8%;">460.1</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legend -->
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; font-size: 0.82rem; color: #555;">
+        <span><span class="legend-dot" style="background: #bbb;"></span> Qwen3-VL-4B</span>
+        <span><span class="legend-dot" style="background: #7cb5ec;"></span> RoboFAC-4B</span>
+        <span><span class="legend-dot" style="background: #3273dc;"></span> Cog3DMap-4B (Ours)</span>
+      </div>
+
+      <p class="table-caption">
+        Results on RoboFAC across short, medium, and long task horizons. Cog3DMap achieves competitive accuracy while reducing visual tokens by up to 90.2%.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Video -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Demo Video</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="video-row">
+          <div class="video-item">
+            <div class="publication-video">
+              <video autoplay muted loop playsinline>
+                <source src="./static/videos/robofac_source.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p>RoboFAC input video</p>
+          </div>
+          <div class="video-item">
+            <div class="publication-video">
+              <video autoplay muted loop playsinline>
+                <source src="./static/videos/robofac_demo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p>Cog3DMap reconstruction</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
